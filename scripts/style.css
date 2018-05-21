@@ -1,0 +1,25 @@
+body{
+    margin: 20px;
+}
+
+h1{
+    text-align: center;
+    padding-bottom: 10px;
+    background-color: blueviolet;
+}
+
+
+h2{
+    padding-bottom: 10px;
+}
+
+.container{
+    padding-bottom: 30px;
+}
+
+#monthlyCosts{
+    text-align: right;
+}
+
+
+
