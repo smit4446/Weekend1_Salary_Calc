@@ -54,16 +54,16 @@ function displayEmployee(){
 function calculateMonthlyCost(){
     let sum = 0;
     for (employee of employees){
-        sum += parseInt(employee.annualSalary); 
+        sum += (employee.annualSalary/12); 
         }
         console.log(sum);
         
         $('#monthlyCosts').empty();
-        $('#monthlyCosts').append('<h3>Total Monthly Costs: $' + parseInt(sum/12).toFixed(2) + "</h3>");
+        $('#monthlyCosts').append('<h3>Total Monthly Costs: $' + sum.toFixed(2) + "</h3>");
 
-        if(sum > 20000){
+        if(sum >= 20000){
             $('#monthlyCosts').css('background-color', 'red');
-        }
+        } 
       }
    
     
