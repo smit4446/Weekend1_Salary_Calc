@@ -2,11 +2,6 @@ $(document).ready(onReady);
 
 let employees = [];
 
-function onReady(){
-    console.log('JQ')
-    $('#submitButton').on('click', addEmployee);
-}
-
 class Employee {
     constructor(firstName, lastName, id, title, annualSalary){
         this.firstName = firstName;
@@ -17,6 +12,26 @@ class Employee {
     }
 }
 
+function onReady(){
+    console.log('JQ')
+    //click handler - target the button
+    $('#submitButton').on('click', addEmployee);
+    $('#deleteButton').on('click', deleteEmployee);
+}
+
+function deleteEmployee(){
+    console.log('in delete emp');
+    let deleteById = $('#deleteById').val();
+    console.log(deleteById);
+    for (let i=0; i<employees.length; i++){
+        let employee = employees[i];
+        if(deleteById == employees[i].id){
+            employees.splice(i,1);   
+        }     
+    } 
+    calculateMonthlyCost();
+    displayEmployee();
+}
 
 function addEmployee(){
     console.log('in addEmployeeToTable');
@@ -33,11 +48,9 @@ function addEmployee(){
 }
 
 function displayEmployee(){
-    let el = $('#employeesOut');
-    
-    el.empty();
+    $('#employeesOut').empty(); 
 
-    for (employee of employees){
+    for (let employee of employees){
         let outputString = '<tr>'
             outputString += '<td>' + employee.firstName + '</td>'
             outputString += '<td>' + employee.lastName + '</td>'
@@ -46,24 +59,26 @@ function displayEmployee(){
             outputString += '<td>' + employee.annualSalary + '</td>'
         outputString += '</tr>'
 
-        el.append(outputString);
-
+        $('#employeesOut').append(outputString);
     }
 }
 
 function calculateMonthlyCost(){
     let sum = 0;
-    for (employee of employees){
-        sum += (employee.annualSalary/12); 
-        }
-        console.log(sum);
-        
-        $('#monthlyCosts').empty();
-        $('#monthlyCosts').append('<h3>Total Monthly Costs: $' + sum.toFixed(2) + "</h3>");
+    for (let employee of employees){
+        sum += parseInt(employee.annualSalary)/12; 
+    }
+    //append to the DOM   
+    $('#monthlyCosts').empty();
+    $('#monthlyCosts').append('<h3>Total Monthly Costs: $' + sum.toFixed(2) + "</h3>");
 
-        if(sum >= 20000){
-            $('#monthlyCosts').css('background-color', 'red');
-        } 
-      }
+    if(sum > 20000){
+        $('#monthlyCosts').addClass('red');
+    } 
+    else{
+        $('#monthlyCosts').removeClass('red');
+    }
+
+    console.log(sum);
+}
    
-    

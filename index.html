@@ -10,8 +10,10 @@
     <title>Salary Calculator</title>
 </head>
 <body>
-    <h1 class = "mainHeader">Salary Calculator</h1>
-    
+    <header>
+        <h1>Salary Calculator</h1>
+    </header>
+    <br>
     <div id = "input">
         <h2>Add Employee</h2>
         <input id = "firstName" type="text" placeholder="First Name">
@@ -25,35 +27,30 @@
     <br>
     <div id = "output">
         <h2>Employees</h2>
+    </div>
     <div class = "table">
     <table class = "table table-striped table-bordered">
         <thead>
-            <tr>
-                <th>First Name:</th>
-                <th>Last Name:</th>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Annual Salary</th>
-            </tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Annual Salary</th>
         </thead>
         <tbody id = "employeesOut">
-              <td></td> 
-              <td></td> 
-              <td></td> 
-              <td></td> 
-              <td></td>  
+             
         </tbody>
         <tfoot class = "tableFooter">
            
         </tfoot>
     </table>
+    </div>
     <div id = "monthlyCosts">
         <h3>Total Monthly Costs: $0</h3>
-    </div>
-
-
-    </div>
-      
-    
+    </div>  
+    <section>
+        <input type="text" placeholder="ID number to delete" id="deleteById">
+        <button id="deleteButton">Delete Employee</button>
+    </section>  
 </body>
 </html>
